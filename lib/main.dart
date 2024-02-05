@@ -4,126 +4,203 @@ void main() {
   runApp(kamal());
 }
 
-class kamal extends StatelessWidget {
+class kamal extends StatefulWidget {
+  @override
+  State<kamal> createState() => _kamalState();
+}
+
+class _kamalState extends State<kamal> {
+  int teamone = 0;
+
+  int teamtwo = 0;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: const Color(0XFF2B475E),
-        body: SafeArea(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-             const CircleAvatar(
-                radius: 89,
-                child: CircleAvatar(
-                  radius: 100,
-                  backgroundImage: AssetImage("assets/images/get.jpg"),
-                ),
-              ),
-              const Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  'Kamal Emad',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 34,
-                    fontFamily: 'MeaCulpa',
-                  ),
-                ),
-              ),
-             const Divider(
-                color: Colors.black,
-                thickness: 1,
-                indent: 49,
-                endIndent: 49,
-                height: 12,
-              ),
-             const Card(
-                shadowColor: Colors.amber,
-                margin: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                child: ListTile(
-                  leading: Icon(
-                    Icons.phone,
-                    size: 22,
-                    color: Colors.white,
-                  ),
-                  title: Text(
-                    '3434',
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(12),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(27),
-                  ),
-                  height: 70,
-                  child: const Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Icon(
-                            Icons.phone,
-                            size: 33,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ),
-                      // Spacer(flex: 1,),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          '123456789',
-                          style: TextStyle(
-                            fontSize: 23,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(12),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(27),
-                  ),
-                  height: 70,
-                  child:const Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Icon(
-                          Icons.phone,
-                          size: 33,
-                          color: Colors.black,
-                        ),
-                      ),
-                      // Spacer(flex: 1,),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          '123456789',
-                          style: TextStyle(
-                            fontSize: 23,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
+        appBar: AppBar(
+          backgroundColor: Colors.amber,
+          foregroundColor: Colors.white,
+          title: Text(
+            'kamal emad',
+            style: TextStyle(
+              fontSize: 30,
+              fontFamily: 'MeaCulpa',
+            ),
           ),
         ),
+        body: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Column(
+                  children: [
+                    Text(
+                      'team a',
+                      style: TextStyle(
+                        fontSize: 30,
+                      ),
+                    ),
+                    Text(
+                      '$teamone',
+                      style: TextStyle(
+                        fontSize: 100,
+                      ),
+                    ),
+                    ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.orange,
+                          // fixedSize: Size( , height),
+                          minimumSize: Size(150, 40),
+                        ),
+                        onPressed: () {
+                          teamone++;
+                          setState(() {});
+                          print('$teamone');
+                        },
+                        child: Text(
+                          'add',
+                          style: TextStyle(
+                            fontSize: 23,
+                            color: Colors.black,
+                          ),
+                        )),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 12),
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.orange,
+                            // fixedSize: Size( , height),
+                            minimumSize: Size(150, 40),
+                          ),
+                          onPressed: () {},
+                          child: Text(
+                            'add ',
+                            style: TextStyle(
+                              fontSize: 23,
+                              color: Colors.black,
+                            ),
+                          )),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 12),
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.orange,
+                            // fixedSize: Size( , height),
+                            minimumSize: Size(150, 40),
+                          ),
+                          onPressed: () {},
+                          child: Text(
+                            'add ',
+                            style: TextStyle(
+                              fontSize: 23,
+                              color: Colors.black,
+                            ),
+                          )),
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: 400,
+                  child: VerticalDivider(
+                    color: Colors.black,
+                    thickness: 1,
+                    indent: 33,
+                    endIndent: 23,
+                  ),
+                ),
+                Column(
+                  children: [
+                    Text(
+                      'team b',
+                      style: TextStyle(
+                        fontSize: 30,
+                      ),
+                    ),
+                    Text(
+                      '$teamtwo',
+                      style: TextStyle(
+                        fontSize: 100,
+                      ),
+                    ),
+                    ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.orange,
+                          // fixedSize: Size( , height),
+                          minimumSize: Size(150, 40),
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            teamtwo--;
+                          });
+                          print('$teamtwo');
+                        },
+                        child: Text(
+                          'miuns ',
+                          style: TextStyle(
+                            fontSize: 23,
+                            color: Colors.black,
+                          ),
+                        )),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 12),
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.orange,
+                            // fixedSize: Size( , height),
+                            minimumSize: Size(150, 40),
+                          ),
+                          onPressed: () {},
+                          child: Text(
+                            'add ',
+                            style: TextStyle(
+                              fontSize: 23,
+                              color: Colors.black,
+                            ),
+                          )),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 12),
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.orange,
+                            // fixedSize: Size( , height),
+                            minimumSize: Size(150, 40),
+                          ),
+                          onPressed: () {},
+                          child: Text(
+                            'add ',
+                            style: TextStyle(
+                              fontSize: 23,
+                              color: Colors.black,
+                            ),
+                          )),
+                    )
+                  ],
+                ),
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 55),
+              child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      primary: Colors.orange,
+                      minimumSize: Size(123, 123),
+                      backgroundColor: Colors.orange),
+                  onPressed: () {
+                    setState(() {
+                      teamtwo=0;
+                      teamone=0;
+                    });
+                  },
+                  child: Text('reset')),
+            ),
+          ],
+        ),
+        floatingActionButton: Text('HI DEAR'),
       ),
     );
   }
